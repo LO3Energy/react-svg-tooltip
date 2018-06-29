@@ -43,10 +43,16 @@ export class TooltipComponent extends React.Component<Props, State> {
                 (
                     <g
                         className="Tooltip"
-                        transform={`translate(${x}, ${y})`}
                         pointerEvents="none" // tooltip should never grab mouse > prevent flickering
                     >
-                        {this.props.children}
+                        {
+                            React.Children.map(this.props.children, child => {
+                                return React.cloneElement(child as React.ReactElement<any>, { 
+                                    x, 
+                                    y,
+                                });
+                            })
+                        }
                     </g>
                 );
 
