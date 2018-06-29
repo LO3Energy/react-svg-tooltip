@@ -25,7 +25,7 @@
   "scripts": {
     "lint": "tslint --type-check -p 'tsconfig.json' codeFrame 'src/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal --exclude '**/*.spec.ts' src",
+    "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es5 --theme minimal --exclude '**/*.spec.ts' src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
     "test": "jest",
     "test:watch": "jest --watch",
